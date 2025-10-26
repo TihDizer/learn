@@ -35,7 +35,7 @@ jobs:
         run: tar -czvf sausage-store-${APP_VERSION}.${GITHUB_SHA:0:7}.tar.gz -C dist/frontend .
 
       - name: Upload Frontend archive
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: frontend-archive
           path: frontend/sausage-store-*.tar.gz
