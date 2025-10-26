@@ -30,11 +30,11 @@ jobs:
         working-directory: frontend
         run: npm run build
 
-      - name: Create Archive
+      - name: Create archive
         working-directory: frontend
         run: tar -czvf sausage-store-${APP_VERSION}.${GITHUB_SHA:0:7}.tar.gz -C dist/frontend .
 
-      - name: Upload Frontend Archive
+      - name: Upload Frontend archive
         uses: actions/upload-artifact@v3
         with:
           name: frontend-archive
