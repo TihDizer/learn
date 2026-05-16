@@ -10,7 +10,7 @@
     {
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
-          python
+          python313
           stdenv.cc.cc.lib
         ];
         shellHook = ''
