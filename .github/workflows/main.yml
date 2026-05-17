@@ -1,0 +1,27 @@
+name: Main workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  lab5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install nix
+        run: |
+          sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
+
+      - name: Nix shell
+        run: |
+          nix develop --experimental-features 'nix-command flakes'
+      - name: Run headless lab5
+        run: |
+          python rutube.py --query "lab5 using playwright for youtube" --headless
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: lab5-results
+          path: artifacts/
