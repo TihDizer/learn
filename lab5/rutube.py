@@ -43,6 +43,7 @@ def run(headless: bool, query: str):
             page.screenshot(path="artifacts/rutube.png")
             Path("artifacts/rutube.html").write_text(page.content(), encoding="utf-8")
         else:
+            page.wait_for_timeout(5000)
             page.screenshot(path="artifacts/rutube-headless.png")
             Path("artifacts/rutube-headless.html").write_text(page.content(), encoding="utf-8")
 
