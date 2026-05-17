@@ -17,9 +17,12 @@ jobs:
       - name: Nix shell
         run: |
           nix develop --experimental-features 'nix-command flakes'
+          . /home/runner/.nix-profile/etc/profile.d/nix.sh
+
       - name: Run headless lab5
         run: |
           python rutube.py --query "lab5 using playwright for youtube" --headless
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
         with:
