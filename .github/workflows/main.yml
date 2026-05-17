@@ -26,4 +26,3 @@ jobs:
         with:
           name: lab5-results
           path: lab5/artifacts/rutube-*
-          archive: false
