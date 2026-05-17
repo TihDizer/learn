@@ -18,8 +18,8 @@ jobs:
         run: |
           . /home/runner/.nix-profile/etc/profile.d/nix.sh
           cd lab5
-          nix develop --experimental-features 'nix-command flakes'
-          python rutube.py --query "lab5 using playwright for youtube" --headless
+          nix develop --experimental-features 'nix-command flakes' --command \
+            python rutube.py --query "lab5 using playwright for youtube" --headless
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v7
