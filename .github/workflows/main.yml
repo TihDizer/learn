@@ -13,11 +13,11 @@ jobs:
       - name: Install nix
         run: |
           sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
+          . /home/runner/.nix-profile/etc/profile.d/nix.sh
 
       - name: Nix shell
         run: |
           nix develop --experimental-features 'nix-command flakes'
-          . /home/runner/.nix-profile/etc/profile.d/nix.sh
 
       - name: Run headless lab5
         run: |
