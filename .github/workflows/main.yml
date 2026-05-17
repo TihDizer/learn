@@ -17,6 +17,7 @@ jobs:
       - name: Run headless lab5
         run: |
           . /home/runner/.nix-profile/etc/profile.d/nix.sh
+          cd learn-testing/lab5
           nix develop --experimental-features 'nix-command flakes'
           python rutube.py --query "lab5 using playwright for youtube" --headless
 
