@@ -25,5 +25,5 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: lab5-results
-          path: lab5/artifacts/rutube-*.html
+          path: lab5/artifacts/rutube-*
           archive: false
