@@ -1,4 +1,6 @@
 {
+  description = "Postman Nix dev shell";
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
@@ -20,7 +22,20 @@
 
         shellHook = ''
           echo "Nix dev shell activated"
-          trap 'deactivate > /dev/null; echo "Nix dev shell deactivated"' EXIT
+
+          mkdir -p .logs
+          postman > .logs/postman.log 2>&1 &
+          POSTMAN_PID=$!
+
+          cleanup() {
+            if kill -0 "$POSTMAN_PID" 2>/dev/null; then
+              kill "$POSTMAN_PID" 2>/dev/null || true
+              wait "$POSTMAN_PID" 2>/dev/null || true
+            fi
+            echo "Nix dev shell deactivated"
+          }
+
+          trap cleanup EXIT INT TERM
         '';
       };
     };
