@@ -1,7 +1,7 @@
 ## Test Suites for niri
 
 # Installation and Running
-Use these commands to install niri with DankMaterialShell for a fairly out-of-the-box experience.
+Use these commands to install niri with DankMaterialShell for a fairly out-of-the-box experience or check [this](https://github.com/niri-wm/niri/wiki/Getting-Started).
 
 Fedora:
 ```bash
