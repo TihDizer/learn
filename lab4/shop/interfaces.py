@@ -1,5 +1,5 @@
 from typing import Protocol
-from src.shop.models import User
+from shop.models import User
 
 
 class InventoryService(Protocol):

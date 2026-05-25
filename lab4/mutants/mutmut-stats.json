@@ -1,0 +1,59 @@
+{
+    "tests_by_mangled_function_name": {
+        "shop.order_processor.x\u01c1OrderProcessor\u01c1__init__": [
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_order_processor.py::test_should_throw_exception_when_no_items",
+            "tests/test_order_processor.py::test_should_throw_exception_and_not_charge_when_out_of_stock"
+        ],
+        "shop.pricing.x\u01c1DiscountCalculator\u01c1__init__": [
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_order_processor.py::test_should_throw_exception_when_no_items",
+            "tests/test_order_processor.py::test_should_throw_exception_and_not_charge_when_out_of_stock",
+            "tests/test_pricing.py::test_discount"
+        ],
+        "shop.order_processor.x\u01c1OrderProcessor\u01c1process_order": [
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_order_processor.py::test_should_throw_exception_when_no_items",
+            "tests/test_order_processor.py::test_should_throw_exception_and_not_charge_when_out_of_stock"
+        ],
+        "shop.pricing.x\u01c1DiscountCalculator\u01c1calculate_discount": [
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_pricing.py::test_discount"
+        ],
+        "shop.pricing.x\u01c1DeliveryCalculator\u01c1calculate_delivery": [
+            "tests/test_pricing.py::test_delivery_by_zones[ZONE_1-200.0]",
+            "tests/test_pricing.py::test_delivery_fragile_item",
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_pricing.py::test_delivery_by_zones[ZONE_4-200.0]",
+            "tests/test_pricing.py::test_delivery_by_zones[ZONE_3-700.0]",
+            "tests/test_pricing.py::test_delivery_by_zones[RUSSIA-200.0]",
+            "tests/test_pricing.py::test_delivery_by_zones[ZONE_2-500.0]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_2]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[RUSSIA]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_1]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_3]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_4]"
+        ],
+        "shop.pricing.x\u01c1DiscountCalculator\u01c1apply_promo_code": [
+            "tests/test_order_processor.py::test_final_price"
+        ]
+    },
+    "duration_by_test": {
+        "tests/test_order_processor.py::test_should_throw_exception_and_not_charge_when_out_of_stock": 0.0012944130003234022,
+        "tests/test_order_processor.py::test_should_throw_exception_when_no_items": 0.0008066040008998243,
+        "tests/test_order_processor.py::test_final_price": 0.0010449089995745453,
+        "tests/test_pricing.py::test_delivery_by_zones[ZONE_1-200.0]": 0.0004118389997529448,
+        "tests/test_pricing.py::test_delivery_by_zones[ZONE_2-500.0]": 0.0003544810015227995,
+        "tests/test_pricing.py::test_delivery_by_zones[ZONE_3-700.0]": 0.0003619760000219685,
+        "tests/test_pricing.py::test_delivery_by_zones[ZONE_4-200.0]": 0.0003543310003806255,
+        "tests/test_pricing.py::test_delivery_by_zones[RUSSIA-200.0]": 0.0003267379997851094,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_1]": 0.0002842899993993342,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_2]": 0.00027100500119559,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_3]": 0.0002761549994829693,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_4]": 0.00027014299848815426,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[RUSSIA]": 0.0002662469996721484,
+        "tests/test_pricing.py::test_delivery_fragile_item": 0.0003332920005050255,
+        "tests/test_pricing.py::test_discount": 0.00030397699993045535
+    },
+    "stats_time": 0.16889811499999996
+}

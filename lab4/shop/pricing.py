@@ -1,6 +1,6 @@
 from datetime import date
 from typing import List, Callable, Optional
-from src.shop.models import User, Item, PromoCode
+from shop.models import User, Item, PromoCode
 
 
 class DiscountCalculator:

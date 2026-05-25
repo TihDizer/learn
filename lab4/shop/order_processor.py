@@ -1,9 +1,9 @@
 import uuid
 from typing import List, Optional
 
-from src.shop.pricing import DiscountCalculator, DeliveryCalculator
-from src.shop.models import User, Item, Order, PromoCode, OrderStatus
-from src.shop.interfaces import InventoryService, PaymentGateway
+from shop.pricing import DiscountCalculator, DeliveryCalculator
+from shop.models import User, Item, Order, PromoCode, OrderStatus
+from shop.interfaces import InventoryService, PaymentGateway
 
 
 class OrderProcessor:
