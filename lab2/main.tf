@@ -97,10 +97,9 @@ resource "yandex_compute_instance" "lab-gitlab" {
               - ./gitlab/data:/var/opt/gitlab
             environment:
               GITLAB_OMNIBUS_CONFIG: |
+                external_url 'http://'
                 nginx['listen_addresses'] = ['0.0.0.0']
           EOL
-
-        - cd /home/ubuntu/gitlab && docker-compose up -d
     EOF
   }
 
