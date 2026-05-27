@@ -140,6 +140,17 @@ resource "yandex_compute_instance" "deploy" {
 
   metadata = {
     ssh-keys  = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
+    user-data = <<-EOF
+      #cloud-config
+      package_update: true
+      packages:
+        - docker.io
+        - docker-compose
+      runcmd:
+        - systemctl enable docker
+        - systemctl start docker
+        - usermod -aG docker ubuntu
+    EOF
   }
 
   lifecycle {
