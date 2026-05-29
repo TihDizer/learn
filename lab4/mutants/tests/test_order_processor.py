@@ -70,8 +70,9 @@ def test_should_throw_exception_and_not_charge_when_out_of_stock(
     # 1. ARRANGE (Настраиваем поведение мока для КОНКРЕТНО ЭТОГО теста)
     mock_inventory.in_stock.return_value = False
 
+
     # 2. ACT & ASSERT (Проверяем, что вылетает правильная ошибка)
-    with pytest.raises(RuntimeError, match="Item item-macbook is out of stock"):
+    with pytest.raises(RuntimeError, match="^Item item-macbook is out of stock"):
         order_processor.process_order(
             user=standard_user,
             items=standard_cart,
@@ -80,6 +81,7 @@ def test_should_throw_exception_and_not_charge_when_out_of_stock(
 
     # 3. VERIFY (Проверяем побочные эффекты)
     # Гарантируем, что процессор упал до того, как попытался снять деньги
+    mock_inventory.in_stock.assert_called_once_with("item-macbook", 1)
     mock_payment.charge.assert_not_called()
 
 
@@ -92,7 +94,7 @@ def standart_promo_code():
 def test_should_throw_exception_when_no_items(
         order_processor, mock_inventory, mock_payment, standard_user, standard_cart
 ):
-    with pytest.raises(ValueError, match="Order must contain at least one item"):
+    with pytest.raises(ValueError, match="^Order must contain at least one item"):
         order_processor.process_order(
             user=standard_user,
             items=[],

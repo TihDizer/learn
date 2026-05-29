@@ -150,6 +150,4 @@
     shop.pricing.xǁDeliveryCalculatorǁcalculate_delivery__mutmut_26: killed
     shop.pricing.xǁDeliveryCalculatorǁcalculate_delivery__mutmut_27: survived
     shop.pricing.xǁDeliveryCalculatorǁcalculate_delivery__mutmut_28: killed
-❯❯
-❯❯
 ```
