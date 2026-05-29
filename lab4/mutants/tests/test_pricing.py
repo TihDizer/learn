@@ -49,3 +49,9 @@ def test_discount(vip_user):
     calculator = DiscountCalculator()
     result = calculator.calculate_discount(vip_user, 50000.0)
     assert result == 42500.0
+
+def test_calculate_discount_negative_amount(vip_user):
+    calculator = DiscountCalculator()
+
+    with pytest.raises(ValueError, match="^Total amount cannot be negative$"):
+        calculator.calculate_discount(vip_user, total_amount=-100.0)
