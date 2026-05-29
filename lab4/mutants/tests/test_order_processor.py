@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import MagicMock
 from datetime import date
 
-from shop.models import User, Item, PromoCode
+from shop.models import User, Item, PromoCode, Order, OrderStatus
 from shop.order_processor import OrderProcessor
 from shop.pricing import DiscountCalculator, DeliveryCalculator
 
@@ -119,3 +119,32 @@ def test_final_price(
 
     mock_payment.charge.assert_called_with(standard_user, 2250.0)
     assert order.final_price == 2250.0
+
+def test_cancel_order_shipped_should_raise_error(order_processor, standard_user):
+    order = Order(
+        order_id="test1",
+        status=OrderStatus.SHIPPED,
+        user=standard_user,
+        final_price=100.0,
+        items=[]
+    )
+
+    with pytest.raises(RuntimeError, match="^Cannot cancel a shipped order$"):
+        order_processor.cancel_order(order)
+
+def test_cancel_paid_order_should_refund_and_return_items(
+    order_processor, mock_payment, mock_inventory, standard_user, standard_cart
+):
+    order = Order(
+        order_id="test2",
+        status=OrderStatus.PAID,
+        user=standard_user,
+        final_price=2250.0,
+        items=standard_cart
+    )
+
+    order_processor.cancel_order(order)
+
+    mock_payment.refund.assert_called_once_with(standard_user, 2250.0)
+
+    mock_inventory.return_item.assert_called_once_with("item-macbook", 1)
