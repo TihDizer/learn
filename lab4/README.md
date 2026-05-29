@@ -1,6 +1,6 @@
 # First iteration
 
-![mutmut results](./mutmut1.md)
+![mutmut results](.mutmut1.md)
 
 Выжило много мутаций, так как тесты проверяют логику поверхностно
 
@@ -59,6 +59,6 @@ with pytest.raises(ValueError, match="^Order must contain at least one item$"):
 
 После этого:
 
-![mutmut results](./mutmut2.md)
+![mutmut results](.mutmut2.md)
 
 Количество выживших уменьшилось
