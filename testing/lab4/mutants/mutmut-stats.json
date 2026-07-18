@@ -1,0 +1,72 @@
+{
+    "tests_by_mangled_function_name": {
+        "shop.order_processor.x\u01c1OrderProcessor\u01c1__init__": [
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_order_processor.py::test_should_throw_exception_when_no_items",
+            "tests/test_order_processor.py::test_cancel_order_shipped_should_raise_error",
+            "tests/test_order_processor.py::test_should_throw_exception_and_not_charge_when_out_of_stock",
+            "tests/test_order_processor.py::test_cancel_paid_order_should_refund_and_return_items"
+        ],
+        "shop.pricing.x\u01c1DiscountCalculator\u01c1__init__": [
+            "tests/test_pricing.py::test_discount",
+            "tests/test_pricing.py::test_calculate_discount_negative_amount",
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_order_processor.py::test_should_throw_exception_when_no_items",
+            "tests/test_order_processor.py::test_should_throw_exception_and_not_charge_when_out_of_stock",
+            "tests/test_order_processor.py::test_cancel_order_shipped_should_raise_error",
+            "tests/test_order_processor.py::test_cancel_paid_order_should_refund_and_return_items"
+        ],
+        "shop.order_processor.x\u01c1OrderProcessor\u01c1process_order": [
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_order_processor.py::test_should_throw_exception_when_no_items",
+            "tests/test_order_processor.py::test_should_throw_exception_and_not_charge_when_out_of_stock"
+        ],
+        "shop.pricing.x\u01c1DiscountCalculator\u01c1calculate_discount": [
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_pricing.py::test_calculate_discount_negative_amount",
+            "tests/test_pricing.py::test_discount"
+        ],
+        "shop.pricing.x\u01c1DeliveryCalculator\u01c1calculate_delivery": [
+            "tests/test_pricing.py::test_delivery_by_zones[ZONE_1-200.0]",
+            "tests/test_pricing.py::test_delivery_fragile_item",
+            "tests/test_order_processor.py::test_final_price",
+            "tests/test_pricing.py::test_delivery_by_zones[ZONE_4-200.0]",
+            "tests/test_pricing.py::test_delivery_by_zones[ZONE_3-700.0]",
+            "tests/test_pricing.py::test_delivery_by_zones[RUSSIA-200.0]",
+            "tests/test_pricing.py::test_delivery_by_zones[ZONE_2-500.0]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_2]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[RUSSIA]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_1]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_3]",
+            "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_4]"
+        ],
+        "shop.pricing.x\u01c1DiscountCalculator\u01c1apply_promo_code": [
+            "tests/test_order_processor.py::test_final_price"
+        ],
+        "shop.order_processor.x\u01c1OrderProcessor\u01c1cancel_order": [
+            "tests/test_order_processor.py::test_cancel_paid_order_should_refund_and_return_items",
+            "tests/test_order_processor.py::test_cancel_order_shipped_should_raise_error"
+        ]
+    },
+    "duration_by_test": {
+        "tests/test_order_processor.py::test_should_throw_exception_and_not_charge_when_out_of_stock": 0.001474401000450598,
+        "tests/test_order_processor.py::test_should_throw_exception_when_no_items": 0.0007755280003038934,
+        "tests/test_order_processor.py::test_final_price": 0.0010116390003531706,
+        "tests/test_pricing.py::test_delivery_by_zones[ZONE_1-200.0]": 0.00035647599725052714,
+        "tests/test_pricing.py::test_delivery_by_zones[ZONE_2-500.0]": 0.00034762799987220205,
+        "tests/test_pricing.py::test_delivery_by_zones[ZONE_3-700.0]": 0.00048744100058684126,
+        "tests/test_pricing.py::test_delivery_by_zones[ZONE_4-200.0]": 0.0003339239992783405,
+        "tests/test_pricing.py::test_delivery_by_zones[RUSSIA-200.0]": 0.0003244259987695841,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_1]": 0.0002739410010690335,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_2]": 0.0003444920002948493,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_3]": 0.0002625090000947239,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[ZONE_4]": 0.0002707859985093819,
+        "tests/test_pricing.py::test_delivery_by_zones_empty[RUSSIA]": 0.0002850620003300719,
+        "tests/test_pricing.py::test_delivery_fragile_item": 0.0003013929981534602,
+        "tests/test_pricing.py::test_discount": 0.00030655199952889234,
+        "tests/test_pricing.py::test_calculate_discount_negative_amount": 0.0007018709984549787,
+        "tests/test_order_processor.py::test_cancel_paid_order_should_refund_and_return_items": 0.0013527219998650253,
+        "tests/test_order_processor.py::test_cancel_order_shipped_should_raise_error": 0.0007394980020762887
+    },
+    "stats_time": 0.17456786800000001
+}

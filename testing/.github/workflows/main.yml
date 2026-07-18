@@ -1,0 +1,61 @@
+name: Main workflow
+on:
+  push:
+    branches:
+      - main
+jobs:
+  lab5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install nix
+        run: |
+          sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
+
+      - name: Run headless lab5
+        run: |
+          . /home/runner/.nix-profile/etc/profile.d/nix.sh
+          cd lab5
+          nix develop --experimental-features 'nix-command flakes' --command \
+            python rutube.py --query "lab5 using playwright for youtube" --headless
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: lab5-results
+          path: lab5/artifacts/rutube-*
+
+  lab3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          cd lab3
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          cd lab3
+          pytest
+
+      - name: Check coverage
+        run: |
+          cd lab3
+          pytest --cov=src/shop --cov-report=html
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: lab3-results
+          path: lab3/htmlcov/
