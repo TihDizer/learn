@@ -1,4 +1,4 @@
-# learn
+# lab
 
 A centralized monorepo dedicated to hands-on learning, laboratory projects, algorithmic challenges, and infrastructure experiments.
 
